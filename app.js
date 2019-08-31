@@ -8,6 +8,13 @@ var app = express();
 app.set('view engine', 'hbs');
 app.enable('trust proxy');
 /////////////////###############################################
+var sfdcOrg = nforce.createConnection({
+	clientId: process.env.CONSUMER_KEY,
+	clientSecret: process.env.CONSUMER_SECRET,
+	redirectUri: 'https://my-ui-integration.herokuapp.com',
+	apiVersion: api,  // optional, defaults to v24.0
+	environment: 'production'  // optional, sandbox or production, production default
+});
 
 /////////////////###############################################
 function isSetup() {
