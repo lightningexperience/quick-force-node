@@ -31,9 +31,6 @@ var sfdcOrg = nforce.createConnection({
 		  console.log('Access Token: ' + resp.access_token);
 		  oauth = resp;
 		}
-		if(callback){
-			callback();
-		}
 	});
 
 /////////////////###############################################
