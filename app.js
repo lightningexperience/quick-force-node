@@ -2,7 +2,9 @@ var express = require('express');
 var path = require('path');
 var nforce = require('nforce');
 var hbs = require('hbs');
-
+/////////////////###############################################
+var api = process.env.API || '25.0';
+/////////////////###############################################
 var app = express();
 
 app.set('view engine', 'hbs');
