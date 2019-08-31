@@ -18,6 +18,24 @@ var sfdcOrg = nforce.createConnection({
 	environment: 'production'  // optional, sandbox or production, production default
 });
 
+
+function sfdcAuthenticate(callback){
+	console.log('Authenticate called');
+	// authenticate using username-password oauth flow
+	sfdcOrg.authenticate({ username: process.env.USERNAME,
+		password: process.env.PASSWORD },
+                function(err, resp){
+		if(err) {
+		  console.log('Error: ' + err.message);
+		} else {
+		  console.log('Access Token: ' + resp.access_token);
+		  oauth = resp;
+		}
+		if(callback){
+			callback();
+		}
+	});
+}
 /////////////////###############################################
 function isSetup() {
   return (process.env.CONSUMER_KEY != null) && (process.env.CONSUMER_SECRET != null);
