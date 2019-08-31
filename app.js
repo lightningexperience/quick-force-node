@@ -19,7 +19,7 @@ var sfdcOrg = nforce.createConnection({
 });
 
 
-function sfdcAuthenticate(callback){
+
 	console.log('Authenticate called');
 	// authenticate using username-password oauth flow
 	sfdcOrg.authenticate({ username: process.env.USERNAME,
@@ -35,7 +35,7 @@ function sfdcAuthenticate(callback){
 			callback();
 		}
 	});
-}
+
 /////////////////###############################################
 function isSetup() {
   return (process.env.CONSUMER_KEY != null) && (process.env.CONSUMER_SECRET != null);
