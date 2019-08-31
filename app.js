@@ -7,7 +7,9 @@ var app = express();
 
 app.set('view engine', 'hbs');
 app.enable('trust proxy');
+/////////////////###############################################
 
+/////////////////###############################################
 function isSetup() {
   return (process.env.CONSUMER_KEY != null) && (process.env.CONSUMER_SECRET != null);
 }
