@@ -37,13 +37,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
-app.get('/', function(req, res, next) {
-  res.render('index', {
-    title: 'Lightning Out!',
-    lightningEndPointURI: process.env.LIGHTNING_URL,
-    authToken: org.oauth.access_token
-  });
-});
+
 
 /////////////////
 /////////////////###############################################
