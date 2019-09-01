@@ -32,6 +32,8 @@ var sfdcOrg = nforce.createConnection({
 		  oauth = resp;
 		}
 	});
+app.set('views', path.join(__dirname, 'views'));
+
 
 /////////////////###############################################
 function isSetup() {
