@@ -17,9 +17,6 @@ var sfdcOrg = nforce.createConnection({
 	apiVersion: api,  // optional, defaults to v24.0
 	environment: 'production'  // optional, sandbox or production, production default
 });
-
-
-
 	console.log('Authenticate called');
 	// authenticate using username-password oauth flow
 	sfdcOrg.authenticate({ username: process.env.USERNAME,
@@ -35,7 +32,7 @@ var sfdcOrg = nforce.createConnection({
 app.set('views', path.join(__dirname, 'views'));
 app.get('/', function(req, res, next) {
   res.render('index', {
-    title: 'Trailhead Lightning Out!',
+    title: 'Lightning Out!',
     lightningEndPointURI: process.env.LIGHTNING_URL,
     authToken: sfdcOrg.oauth.access_token
   });
