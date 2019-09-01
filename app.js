@@ -37,7 +37,7 @@ app.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Trailhead Lightning Out!',
     lightningEndPointURI: process.env.LIGHTNING_URL,
-    authToken: org.oauth.access_token
+    authToken: sfdcOrg.oauth.access_token
   });
 });
 
