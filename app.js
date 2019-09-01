@@ -41,7 +41,7 @@ app.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Lightning Out!',
     lightningEndPointURI: process.env.LIGHTNING_URL,
-    authToken: sfdcOrg.oauth.access_token
+    authToken: org.oauth.access_token
   });
 });
 
