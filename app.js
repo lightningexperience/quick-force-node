@@ -12,7 +12,7 @@ var app = express();
 app.set('view engine', 'hbs');
 app.enable('trust proxy');
 /////////////////###############################################
-var sfdcOrg = nforce.createConnection({
+var org = nforce.createConnection({
 	clientId: process.env.CONSUMER_KEY,
 	clientSecret: process.env.CONSUMER_SECRET,
 	redirectUri: process.env.CALLBACK_URL,
@@ -21,7 +21,7 @@ var sfdcOrg = nforce.createConnection({
 });
 	console.log('Authenticate called');
 	// authenticate using username-password oauth flow
-	sfdcOrg.authenticate({ username: process.env.USERNAME,
+	org.authenticate({ username: process.env.USERNAME,
 		password: process.env.PASSWORD },
                 function(err, resp){
 		if(err) {
@@ -32,11 +32,11 @@ var sfdcOrg = nforce.createConnection({
 		}
 	});
 /////////////////
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('views', path.join(__dirname, 'views'));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(cookieParser());
+// app.use(express.static(path.join(__dirname, 'public')));
+// app.set('views', path.join(__dirname, 'views'));
 app.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Lightning Out!',
