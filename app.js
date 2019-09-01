@@ -4,6 +4,8 @@ var nforce = require('nforce');
 var hbs = require('hbs');
 /////////////////###############################################
 var api = process.env.API || '25.0';
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 /////////////////###############################################
 var app = express();
 
@@ -29,6 +31,11 @@ var sfdcOrg = nforce.createConnection({
 		  oauth = resp;
 		}
 	});
+/////////////////
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.get('/', function(req, res, next) {
   res.render('index', {
@@ -38,6 +45,7 @@ app.get('/', function(req, res, next) {
   });
 });
 
+/////////////////
 /////////////////###############################################
 function isSetup() {
   return (process.env.CONSUMER_KEY != null) && (process.env.CONSUMER_SECRET != null);
