@@ -33,7 +33,13 @@ var sfdcOrg = nforce.createConnection({
 		}
 	});
 app.set('views', path.join(__dirname, 'views'));
-
+app.get('/', function(req, res, next) {
+  res.render('index', {
+    title: 'Trailhead Lightning Out!',
+    lightningEndPointURI: process.env.LIGHTNING_URL,
+    authToken: org.oauth.access_token
+  });
+});
 
 /////////////////###############################################
 function isSetup() {
